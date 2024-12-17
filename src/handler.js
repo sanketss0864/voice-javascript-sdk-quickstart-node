@@ -41,7 +41,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
 
     // This will connect the caller with your Twilio.Device/client 
     dial.client(identity);
-
+    twiml.say("hi Thanks for calling!");
   } else if (requestBody.To) {
     // This is an outgoing call
 
@@ -54,7 +54,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
       ? "number"
       : "client";
     dial[attr]({}, toNumberOrClientName);
-  twiml.say("hi thanks for calling in bluethink")
+
   } else {
     twiml.say("Thanks for calling!");
   }
