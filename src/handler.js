@@ -54,6 +54,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
       ? "number"
       : "client";
     dial[attr]({}, toNumberOrClientName);
+  twiml.say("hi thanks for calling in bluethink")
   } else {
     twiml.say("Thanks for calling!");
   }
