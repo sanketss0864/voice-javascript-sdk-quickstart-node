@@ -6,7 +6,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon index.mjs",
     "eslint": "./node_modules/.bin/eslint .",
     "test": "./node_modules/.bin/jest"
   },
