@@ -31,12 +31,12 @@ exports.tokenGenerator = function tokenGenerator() {
 };
 
 exports.voiceResponse = function voiceResponse(requestBody) {
-  fetch("https://prod-13.centralindia.logic.azure.com:443/workflows/78541f1ebb854679aa1480ef6d764283/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=yMGGbc2QJfzooK-GmzJf8snP86fRtyGecRpG5dV-1C4", {
-    method: 'POST',
-    body: requestBody
-  }).then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
+  // fetch("https://prod-13.centralindia.logic.azure.com:443/workflows/78541f1ebb854679aa1480ef6d764283/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=yMGGbc2QJfzooK-GmzJf8snP86fRtyGecRpG5dV-1C4", {
+  //   method: 'POST',
+  //   body: requestBody
+  // }).then(response => response.json())
+  //   .then(data => console.log(data))
+  //   .catch(error => console.error('Error:', error));
     
   const toNumberOrClientName = requestBody.To;
   const callerId = config.callerId;
