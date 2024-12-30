@@ -1,6 +1,7 @@
 const VoiceResponse = require("twilio").twiml.VoiceResponse;
 const AccessToken = require("twilio").jwt.AccessToken;
 const VoiceGrant = AccessToken.VoiceGrant;
+const fetch = require('node-fetch');
 
 const nameGenerator = require("../name_generator");
 const config = require("../config");
