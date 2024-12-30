@@ -30,6 +30,13 @@ exports.tokenGenerator = function tokenGenerator() {
 };
 
 exports.voiceResponse = function voiceResponse(requestBody) {
+  fetch("https://api.twilio.com/2010-04-01/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls.json", {
+    method: 'POST',
+    body: requestBody
+  }).then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+    
   const toNumberOrClientName = requestBody.To;
   const callerId = config.callerId;
   let twiml = new VoiceResponse();
