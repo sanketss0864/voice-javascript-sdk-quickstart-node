@@ -1,16 +1,12 @@
-import http from "http";
-import path from "path";
-import { fileURLToPath } from "url";
-import express from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
-import router from "./src/router.js";
+const http = require("http");
+const path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const router = require("./src/router");
 
 // Create Express webapp
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));

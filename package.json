@@ -4,9 +4,8 @@
   "version": "1.0.0",
   "description": "Quick Start application template for Twilio Voice JavaScript SDK on Node.js",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "nodemon index.mjs",
+    "start": "nodemon index.js",
     "eslint": "./node_modules/.bin/eslint .",
     "test": "./node_modules/.bin/jest"
   },
@@ -30,7 +29,6 @@
   },
   "dependencies": {
     "@twilio/voice-sdk": "^2.2.0",
-    "axios": "^1.7.9",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

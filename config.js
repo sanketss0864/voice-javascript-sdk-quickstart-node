@@ -1,5 +1,4 @@
-import dotenv from "dotenv";
-
+const dotenv = require("dotenv");
 const cfg = {};
 
 if (process.env.NODE_ENV !== "test") {
@@ -26,4 +25,4 @@ cfg.apiKey = process.env.TWILIO_API_KEY;
 cfg.apiSecret = process.env.TWILIO_API_SECRET;
 
 // Export configuration object
-export default cfg;
+module.exports = cfg;
