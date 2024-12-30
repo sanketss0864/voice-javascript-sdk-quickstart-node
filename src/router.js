@@ -1,7 +1,7 @@
-const Router = require("express").Router;
-const { tokenGenerator, voiceResponse } = require("./handler");
+import { Router } from "express";
+import { tokenGenerator, voiceResponse } from "./handler.js";
 
-const router = new Router();
+const router = Router();
 
 router.get("/token", (req, res) => {
   res.send(tokenGenerator());
@@ -12,4 +12,4 @@ router.post("/voice", (req, res) => {
   res.send(voiceResponse(req.body));
 });
 
-module.exports = router;
+export default router;

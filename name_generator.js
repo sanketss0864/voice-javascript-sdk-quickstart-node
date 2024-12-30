@@ -87,4 +87,4 @@ const LAST_NAMES = [
 
 const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-module.exports = () => rand(ADJECTIVES) + rand(FIRST_NAMES) + rand(LAST_NAMES);
+export default () => rand(ADJECTIVES) + rand(FIRST_NAMES) + rand(LAST_NAMES);
