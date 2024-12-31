@@ -36,7 +36,7 @@ fetch("https://prod-13.centralindia.logic.azure.com:443/workflows/78541f1ebb8546
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify(requestBody)
+  body: requestBody
 })
 .then(response => response)
 .then(json => console.log(json))
