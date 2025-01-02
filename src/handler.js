@@ -45,12 +45,11 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   const callerId = config.callerId;
   let twiml = new VoiceResponse();
 
-  // If the request to the /voice endpoint is TO your Twilio Number, 
-  // then it is an incoming call towards your Twilio.Device.
+
   if (toNumberOrClientName == callerId) {
     let dial = twiml.dial();
 
-    // This will connect the caller with your Twilio.Device/client 
+   
     dial.client(identity);
     twiml.say("hi Thanks for calling!");
   } else if (requestBody.To) {
