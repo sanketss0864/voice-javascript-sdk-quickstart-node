@@ -72,6 +72,16 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   return twiml.toString();
 };
 
+exports.recordResponse = function recordResponse() {
+  const twiml = new VoiceResponse();
+  twiml.say('Hello. Please leave a message after the beep.');
+  twiml.record({ transcribe: true, maxLength: 30 });
+  twiml.hangup();
+  return twiml.toString();
+};
+
+
+
 /**
  * Checks if the given value is valid as phone number
  * @param {Number|String} number

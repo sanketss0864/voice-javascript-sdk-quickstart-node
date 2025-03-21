@@ -1,5 +1,5 @@
 const Router = require("express").Router;
-const { tokenGenerator, voiceResponse } = require("./handler");
+const {tokenGenerator,voiceResponse,recordResponse} = require("./handler");
 
 const router = new Router();
 
@@ -24,5 +24,10 @@ router.post("/callbackStatus", (req, res) => {
   .then(json => console.log(json))
   .catch(error => console.error('Error:', error));
 }); 
+
+router.post("/record", (req, res) => {
+  res.type('text/xml');
+  res.send(recordResponse());
+});
 
 module.exports = router;
