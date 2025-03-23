@@ -37,7 +37,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
     },
     body: JSON.stringify(requestBody) // Properly stringify the request body
   })
-  .then(response => response.json())
+  .then(response => response)
   .then(json => console.log(json))
   .catch(error => console.error('Error:', error));
 
