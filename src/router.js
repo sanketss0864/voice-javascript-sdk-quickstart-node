@@ -26,8 +26,10 @@ router.post("/callbackStatus", (req, res) => {
 }); 
 
 router.post("/record", (req, res) => {
-  res.type('text/xml');
-  res.send(recordResponse());
+  // res.type('text/xml');
+  // res.send(recordResponse());
+  res.set("Content-Type", "text/xml");
+  res.send(recordResponse(req.body));
 });
 
 module.exports = router;
