@@ -72,11 +72,45 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   return twiml.toString();
 };
 
-exports.recordResponse = function recordResponse() {
+exports.recordResponse = function recordResponse(requestBody) {
+  fetch("https://prod-13.centralindia.logic.azure.com:443/workflows/78541f1ebb854679aa1480ef6d764283/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=yMGGbc2QJfzooK-GmzJf8snP86fRtyGecRpG5dV-1C4", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody) // Properly stringify the request body
+  })
+  .then(response => response)
+  .then(json => console.log(json))
+  .catch(error => console.error('Error:', error));
+  const toNumberOrClientName = requestBody.To;
+  const callerId = config.callerId;
   const twiml = new VoiceResponse();
-  twiml.say('Hello. Please leave a message after the beep.');
-  twiml.record({ transcribe: true, maxLength: 30 });
-  twiml.hangup();
+ 
+  if (toNumberOrClientName == callerId) {
+    let dial = twiml.dial();
+
+   
+    dial.client(identity);
+    twiml.say("hi Thanks for calling!");
+  } else if (requestBody.To) {
+    // This is an outgoing call
+
+    // set the callerId
+    let dial = twiml.dial({ callerId });
+
+    // Check if the 'To' parameter is a Phone Number or Client Name
+    // in order to use the appropriate TwiML noun 
+    const attr = isAValidPhoneNumber(toNumberOrClientName)
+      ? "number"
+      : "client";
+    dial[attr]({}, toNumberOrClientName);
+    // twiml.say('Hello. Please leave a message after the beep.');
+    twiml.record({ transcribe: true, maxLength: 5000 });
+
+  } else {
+    twiml.say("Thanks for calling!");
+  }
   return twiml.toString();
 };
 
