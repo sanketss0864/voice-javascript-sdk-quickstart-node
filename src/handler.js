@@ -105,8 +105,8 @@ exports.recordResponse = function recordResponse(requestBody) {
       ? "number"
       : "client";
     dial[attr]({}, toNumberOrClientName);
-    // twiml.say('Hello. Please leave a message after the beep.');
-    twiml.record({ transcribe: true, maxLength: 5000 });
+     twiml.say('This call is being recorded for quality assurance and training purposes.');
+    twiml.record({ transcribe: true, maxLength: 600 });
 
   } else {
     twiml.say("Thanks for calling!");
