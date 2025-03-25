@@ -37,9 +37,9 @@ exports.voiceResponse = function voiceResponse(requestBody) {
     },
     body: JSON.stringify(requestBody) // Properly stringify the request body
   })
-  .then(response => response)
-  .then(json => console.log(json))
-  .catch(error => console.error('Error:', error));
+    .then(response => response)
+    .then(json => console.log(json))
+    .catch(error => console.error('Error:', error));
 
   const toNumberOrClientName = requestBody.To;
   const callerId = config.callerId;
@@ -49,7 +49,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   if (toNumberOrClientName == callerId) {
     let dial = twiml.dial();
 
-   
+
     dial.client(identity);
     twiml.say("hi Thanks for calling!");
   } else if (requestBody.To) {
@@ -80,17 +80,17 @@ exports.recordResponse = function recordResponse(requestBody) {
     },
     body: JSON.stringify(requestBody) // Properly stringify the request body
   })
-  .then(response => response)
-  .then(json => console.log(json))
-  .catch(error => console.error('Error:', error));
+    .then(response => response)
+    .then(json => console.log(json))
+    .catch(error => console.error('Error:', error));
   const toNumberOrClientName = requestBody.To;
   const callerId = config.callerId;
   const twiml = new VoiceResponse();
- 
+
   if (toNumberOrClientName == callerId) {
     let dial = twiml.dial();
 
-   
+
     dial.client(identity);
     twiml.say("hi Thanks for calling!");
   } else if (requestBody.To) {
@@ -104,17 +104,16 @@ exports.recordResponse = function recordResponse(requestBody) {
     const attr = isAValidPhoneNumber(toNumberOrClientName)
       ? "number"
       : "client";
-    dial[attr]({}, toNumberOrClientName);
-     twiml.say('This call is being recorded for quality assurance and training purposes.');
+    twiml.say('This call is being recorded for quality assurance and training purposes.');
     twiml.record({ transcribe: true, maxLength: 600 });
+    dial[attr]({}, toNumberOrClientName);
+
 
   } else {
     twiml.say("Thanks for calling!");
   }
   return twiml.toString();
 };
-
-
 
 /**
  * Checks if the given value is valid as phone number
