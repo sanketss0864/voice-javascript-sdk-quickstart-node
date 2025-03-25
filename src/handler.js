@@ -100,8 +100,8 @@ exports.recordResponse = function recordResponse(requestBody) {
       recordingStatusCallback: 'https://prod-24.centralindia.logic.azure.com:443/workflows/962952e47cf24bb997f980ce15be6e31/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uhO1TzOinxcVA2ry4kmsz3iYclO7RBZxGq3Nje3jyhI', callerId
     });
 
-    const start = twiml.start();
-    start.transcription({statusCallbackUrl: 'https://prod-24.centralindia.logic.azure.com:443/workflows/962952e47cf24bb997f980ce15be6e31/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uhO1TzOinxcVA2ry4kmsz3iYclO7RBZxGq3Nje3jyhI', name: 'Contact center transcription'})
+    // const start = twiml.start();
+    // start.transcription({statusCallbackUrl: 'https://prod-24.centralindia.logic.azure.com:443/workflows/962952e47cf24bb997f980ce15be6e31/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uhO1TzOinxcVA2ry4kmsz3iYclO7RBZxGq3Nje3jyhI', name: 'Contact center transcription'})
 
     const attr = isAValidPhoneNumber(toNumberOrClientName)
       ? "number"
