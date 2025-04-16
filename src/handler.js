@@ -69,6 +69,8 @@ exports.voiceResponse = function voiceResponse(requestBody) {
     twiml.say("Thanks for calling!");
   }
 
+  console.log(twiml.toString());
+
   return twiml.toString();
 };
 
