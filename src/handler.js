@@ -112,6 +112,7 @@ exports.recordResponse = function recordResponse(requestBody) {
   } else {
     twiml.say("Thanks for calling!");
   }
+  console.log(twiml.toString());
   return twiml.toString();
 };
 
